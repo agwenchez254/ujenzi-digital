@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Construction-themed professional palette */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Deep navy - professional, trustworthy */
+    --primary: 213 50% 23%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light slate backgrounds */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 215 25% 25%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Construction amber/orange accent */
+    --accent: 32 95% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Status colors */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 213 50% 23%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 213 50% 18%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 32 95% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 45% 28%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 213 40% 25%;
+    --sidebar-ring: 32 95% 52%;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 50% 23%) 0%, hsl(213 45% 30%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(32 95% 52%) 0%, hsl(25 95% 48%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(213 50% 20%) 0%, hsl(213 50% 28%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --background: 215 25% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 25% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 25% 14%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 32 95% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 32 95% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 32 95% 52%;
+
+    --sidebar-background: 215 30% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 32 95% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 15%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 25% 18%;
+    --sidebar-ring: 32 95% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-xl shadow-[var(--shadow-card)] border border-border/50;
+  }
+
+  .btn-primary-gradient {
+    background: var(--gradient-accent);
+    @apply text-accent-foreground font-semibold shadow-md hover:opacity-90 transition-opacity;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .status-pending {
+    @apply bg-warning/15 text-warning;
+  }
+
+  .status-completed {
+    @apply bg-success/15 text-success;
+  }
+
+  .status-rejected {
+    @apply bg-destructive/15 text-destructive;
+  }
+
+  .status-accepted {
+    @apply bg-info/15 text-info;
+  }
+
+  .mobile-nav-item {
+    @apply flex flex-col items-center gap-1 p-2 rounded-lg transition-colors;
+  }
+
+  .mobile-nav-item.active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .mobile-nav-item:not(.active) {
+    @apply text-muted-foreground hover:text-foreground hover:bg-muted;
+  }
+
+  .inspection-card {
+    @apply card-elevated p-4 space-y-3 hover:shadow-lg transition-shadow cursor-pointer;
+  }
+
+  .stat-card {
+    @apply card-elevated p-4 flex flex-col;
+  }
+
+  .page-header {
+    @apply sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border px-4 py-3;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold text-muted-foreground uppercase tracking-wide;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
