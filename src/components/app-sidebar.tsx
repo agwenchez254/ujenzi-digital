@@ -30,10 +30,6 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Installation",
-          url: "#",
-        },
-        {
           title: "Project Structure",
           url: "#",
         },
@@ -44,17 +40,9 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Routing",
-          url: "#",
-        },
-        {
           title: "Data Fetching",
           url: "#",
           isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
         },
         {
           title: "Caching",
